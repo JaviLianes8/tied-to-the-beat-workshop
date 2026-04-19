@@ -1,0 +1,59 @@
+/*
+ * cards.css — clickable content cards.
+ * The ::before pseudo-element layers a radial purple glow in the top-left
+ * corner, matching the game's own character-select card treatment. Hover
+ * lifts the card and strengthens the glow + border.
+ */
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elev) 100%);
+  border: 1px solid var(--line-accent);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  isolation: isolate;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(167, 139, 250, 0.15), transparent 45%);
+  opacity: 0.8;
+  z-index: -1;
+  transition: opacity 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(147, 197, 214, 0.2),
+    0 0 40px rgba(167, 139, 250, 0.15);
+  border-bottom: 1px solid var(--accent);
+}
+.card:hover::before { opacity: 1; }
+
+.card .icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--gold);
+  text-shadow: 0 0 16px rgba(var(--gold-rgb), 0.4);
+}
+.card h3 {
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 17px;
+}
+.card p {
+  color: var(--ink-mute);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}

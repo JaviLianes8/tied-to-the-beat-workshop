@@ -1,0 +1,49 @@
+/*
+ * notes-bg.css — ambient falling-note background effect.
+ * The .notes-bg container and its .note children are spawned by
+ * assets/js/notes.js with randomized CSS custom properties
+ * (--note-opacity / --note-drift / --note-rot-start / --note-rot-end)
+ * that drive varied trajectories across a shared keyframe.
+ */
+
+.notes-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.notes-bg .note {
+  position: absolute;
+  top: -8vh;
+  color: #FFFFFF;
+  opacity: 0;
+  font-family: 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', 'Noto Music', sans-serif;
+  animation-name: note-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  user-select: none;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.55),
+    0 0 18px rgba(147, 197, 214, 0.28),
+    0 0 32px rgba(167, 139, 250, 0.18);
+  --note-opacity: 0.15;
+  --note-drift: 0px;
+  --note-rot-start: 0deg;
+  --note-rot-end: 180deg;
+}
+
+@keyframes note-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(var(--note-rot-start));
+    opacity: 0;
+  }
+  8%  { opacity: var(--note-opacity); }
+  92% { opacity: var(--note-opacity); }
+  100% {
+    transform: translate3d(var(--note-drift), 115vh, 0) rotate(var(--note-rot-end));
+    opacity: 0;
+  }
+}

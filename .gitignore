@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+node_modules/
+
+# Local admin tool (personal copy-paste helper, not distributed)
+workshop-steamworks-copy.html
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.format.title">LRC format — Tied to the Beat Workshop</title>
+<meta name="description" data-i18n-attr="content:meta.format.description" content="Complete reference for the LRC lyric file format used by Tied to the Beat — timestamps, metadata, instrumental markers, language codes.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand">
+      <span data-i18n="nav.brand">TIED TO THE BEAT</span><span data-i18n="nav.brandSub"> · Workshop</span>
+    </a>
+    <a href="format.html" class="link active" data-i18n="nav.format">LRC format</a>
+    <a href="faq.html" class="link" data-i18n="nav.faq">FAQ</a>
+    <div class="lang-picker"></div>
+  </div>
+</nav>
+
+<main>
+  <h1 data-i18n="format.h1">LRC format reference</h1>
+  <p class="lead" data-i18n="format.lead">
+    LRC is a simple text format: one lyric line per row, each prefixed with a timestamp. Tied to the Beat uses the standard spec plus a couple of optional game-specific tags.
+  </p>
+
+  <h2 data-i18n="format.h2.basic">The basic timestamp</h2>
+  <pre><code>[mm:ss.xx] lyric text here</code></pre>
+  <ul>
+    <li data-i18n-html="format.basic.li1"><code>mm</code> — minutes, two digits (<code>00</code> to <code>59</code>)</li>
+    <li data-i18n-html="format.basic.li2"><code>ss</code> — seconds, two digits (<code>00</code> to <code>59</code>)</li>
+    <li data-i18n-html="format.basic.li3"><code>xx</code> — hundredths of a second, two digits (<code>00</code> to <code>99</code>)</li>
+  </ul>
+  <p data-i18n-html="format.basic.ms.html">Some editors export three-digit milliseconds (<code>mm:ss.xxx</code>) — that works too. Both are read correctly by the game.</p>
+
+  <h3 data-i18n="format.h3.example">Example</h3>
+  <pre><code>[00:12.40] I remember when, I remember
+[00:15.90] I remember when I lost my mind
+[00:19.60] There was something so pleasant about that place
+[00:23.20] Even your emotions had an echo
+[00:27.00] In so much space</code></pre>
+
+  <h2 data-i18n="format.h2.meta">Metadata header (optional)</h2>
+  <p data-i18n="format.meta.intro">At the top of your file you can include ID tags. All are optional — the game auto-fills title/artist from MP3 tags — but including them in the LRC helps external tools and makes your file self-contained.</p>
+
+  <pre><code>[ti:Rolling in the Deep]
+[ar:Adele]
+[al:21]
+[length:03:48]
+[by:community_creator_name]
+[la:en]
+[offset:0]
+[source:https://example.com/where-you-got-the-audio]
+[license:CC0]
+
+[00:12.40] There's a fire starting in my heart
+[00:15.80] Reaching a fever pitch and it's bringing me out the dark</code></pre>
+
+  <table>
+    <thead><tr>
+      <th data-i18n="format.meta.th.tag">Tag</th>
+      <th data-i18n="format.meta.th.meaning">Meaning</th>
+      <th data-i18n="format.meta.th.req">Required?</th>
+    </tr></thead>
+    <tbody>
+      <tr><td data-i18n-html="format.meta.ti.k"><code>[ti:...]</code></td><td data-i18n="format.meta.ti.v">Song title</td><td data-i18n="format.meta.ti.r">No — read from MP3</td></tr>
+      <tr><td data-i18n-html="format.meta.ar.k"><code>[ar:...]</code></td><td data-i18n="format.meta.ar.v">Artist</td><td data-i18n="format.meta.ar.r">No — read from MP3</td></tr>
+      <tr><td data-i18n-html="format.meta.al.k"><code>[al:...]</code></td><td data-i18n="format.meta.al.v">Album</td><td data-i18n="format.meta.al.r">No</td></tr>
+      <tr><td data-i18n-html="format.meta.len.k"><code>[length:mm:ss]</code></td><td data-i18n="format.meta.len.v">Total duration</td><td data-i18n="format.meta.len.r">No</td></tr>
+      <tr><td data-i18n-html="format.meta.by.k"><code>[by:...]</code></td><td data-i18n="format.meta.by.v">LRC author / creator</td><td data-i18n="format.meta.by.r">No</td></tr>
+      <tr><td data-i18n-html="format.meta.la.k"><code>[la:xx]</code></td><td data-i18n-html="format.meta.la.v">ISO language code (<code>en</code>, <code>es</code>, <code>ja</code>, …)</td><td data-i18n-html="format.meta.la.r"><strong>Yes</strong> — affects word→effect dictionary</td></tr>
+      <tr><td data-i18n-html="format.meta.off.k"><code>[offset:±ms]</code></td><td data-i18n="format.meta.off.v">Global shift in milliseconds (negative = earlier)</td><td data-i18n="format.meta.off.r">No</td></tr>
+      <tr><td data-i18n-html="format.meta.src.k"><code>[source:URL]</code></td><td data-i18n-html="format.meta.src.v">Where the audio came from — direct link (Pixabay page, CC recording, your own upload, etc.)</td><td data-i18n-html="format.meta.src.r"><strong>Yes</strong> — required on Workshop for uploads not composed by you</td></tr>
+      <tr><td data-i18n-html="format.meta.lic.k"><code>[license:NAME]</code></td><td data-i18n-html="format.meta.lic.v">Short license name: <em>Pixabay License</em>, <em>CC0</em>, <em>CC-BY 4.0</em>, <em>Public Domain</em>, <em>Own recording</em>, …</td><td data-i18n-html="format.meta.lic.r"><strong>Yes</strong> — when <code>[source:]</code> is present</td></tr>
+    </tbody>
+  </table>
+
+  <h2 data-i18n="format.h2.inst">Instrumental markers</h2>
+  <p data-i18n-html="format.inst.intro.html">Songs have solos, intros, outros, and breaks — parts with no vocals. Mark them explicitly with <code>[instrumental]</code> so the game triggers a special <em>instrumental wave</em> instead of falling back to default spawns:</p>
+
+  <pre><code>[00:00.00] [instrumental]
+[00:12.40] First verse starts here
+[01:45.20] And the chorus repeats
+[02:30.00] [instrumental]
+[02:58.50] Final chorus</code></pre>
+
+  <p data-i18n-html="format.inst.only.html"><code>[instrumental]</code> is the <strong>only</strong> marker the game reads. Other conventions you may have seen in karaoke apps (<code>[solo]</code>, <code>[intro]</code>, <code>[outro]</code>, <code>[♪]</code>, etc.) are not recognized — map all of them to <code>[instrumental]</code> when converting from another format.</p>
+
+  <h2 data-i18n="format.h2.langs">Supported languages (30)</h2>
+  <p data-i18n-html="format.langs.intro.html">Use the language code (matching the game's catalog) in the <code>[la:...]</code> tag:</p>
+  <div class="grid-2">
+    <div>
+      <p data-i18n-html="format.langs.col1.html"><code>en</code> — English<br>
+      <code>es-ES</code> — Spanish (Spain) · Español<br>
+      <code>es-419</code> — Spanish (Latin America)<br>
+      <code>fr</code> — French · Français<br>
+      <code>it</code> — Italian · Italiano<br>
+      <code>de</code> — German · Deutsch<br>
+      <code>pt-BR</code> — Portuguese (Brazil)<br>
+      <code>pt-PT</code> — Portuguese (Portugal)<br>
+      <code>nl</code> — Dutch · Nederlands<br>
+      <code>pl</code> — Polish · Polski<br>
+      <code>cs</code> — Czech · Čeština<br>
+      <code>hu</code> — Hungarian · Magyar<br>
+      <code>ro</code> — Romanian · Română<br>
+      <code>bg</code> — Bulgarian · Български<br>
+      <code>uk</code> — Ukrainian · Українська</p>
+    </div>
+    <div>
+      <p data-i18n-html="format.langs.col2.html"><code>ru</code> — Russian · Русский<br>
+      <code>el</code> — Greek · Ελληνικά<br>
+      <code>tr</code> — Turkish · Türkçe<br>
+      <code>da</code> — Danish · Dansk<br>
+      <code>no</code> — Norwegian · Norsk<br>
+      <code>sv</code> — Swedish · Svenska<br>
+      <code>fi</code> — Finnish · Suomi<br>
+      <code>ja</code> — Japanese · 日本語<br>
+      <code>ko</code> — Korean · 한국어<br>
+      <code>zh-Hans</code> — Chinese Simplified · 简体中文<br>
+      <code>zh-Hant</code> — Chinese Traditional · 繁體中文<br>
+      <code>th</code> — Thai · ไทย<br>
+      <code>vi</code> — Vietnamese · Tiếng Việt<br>
+      <code>id</code> — Indonesian · Bahasa Indonesia<br>
+      <code>ar</code> — Arabic · العربية</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p data-i18n-html="format.langs.why.html"><strong>Why the language matters.</strong> The game maps specific words to specific gameplay effects — <em>fire</em>, <em>ice</em>, <em>rain</em>, <em>lightning</em>, <em>love</em>, <em>dark</em>, etc. Each language has its own curated dictionary. The wrong language tag means words won't trigger the right effects and your track will feel flat.</p>
+  </div>
+
+  <h2 data-i18n="format.h2.mistakes">Common mistakes</h2>
+  <ul>
+    <li data-i18n-html="format.mistakes.li1"><strong>Missing leading zeros</strong> — <code>[0:12.4]</code> breaks some parsers. Always pad to <code>[00:12.40]</code>.</li>
+    <li data-i18n-html="format.mistakes.li2"><strong>Wrong encoding</strong> — save as UTF-8, never ANSI. Non-Latin characters turn into <code>???</code> otherwise.</li>
+    <li data-i18n-html="format.mistakes.li3"><strong>Blank lines with timestamps</strong> — <code>[01:23.00]</code> with no text is treated as end-of-line, which collapses pacing. Use <code>[01:23.00] [instrumental]</code> instead.</li>
+    <li data-i18n-html="format.mistakes.li4"><strong>Duplicate timestamps</strong> — two lines with the same <code>[mm:ss.xx]</code>. The second one is ignored.</li>
+    <li data-i18n-html="format.mistakes.li5"><strong>Non-monotonic timestamps</strong> — each line should start after the previous one. Going back in time confuses the game.</li>
+  </ul>
+
+  <h2 data-i18n="format.h2.example">A complete working example</h2>
+  <p data-i18n-html="format.example.intro.html">This is the exact format of the Workshop's bootstrap item <em>Bass Boom Kids</em> — the reference every upload follows:</p>
+  <pre><code>[ti:Bass Boom Kids]
+[ar:Lilex]
+[al:Workshop bootstrap — Tied to the Beat]
+[la:en]
+[length:03:30]
+[by:stable-ts large-v3]
+[offset:0]
+[source:https://pixabay.com/es/music/melod%c3%adas-para-ni%c3%b1os-felices-bass-boom-kids-425502/]
+[license:Pixabay License (free commercial use, no attribution required)]
+[genre:electronic]
+[ve:1]
+
+[00:00.00] [instrumental]
+[00:12.09] Boom, boom, hear the bass, feel it shake the whole wide place
+[00:17.04] Clap your hands and stomp your feet, techno kids bring all the heat
+[00:20.42] [instrumental]
+[00:26.15] Be so deep, it makes us fly
+[00:30.08] Jump so high, we touch the sky
+[00:33.74] Sing together, one, two, three
+[00:36.84] This is our kids' melody</code></pre>
+
+  <div class="btn-row">
+    <a class="btn" href="index.html" data-i18n="format.btn.back">← Back to guide</a>
+    <a class="btn secondary" href="faq.html" data-i18n="format.btn.faq">FAQ</a>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n-html="footer.html">Made by the <a href="https://steamcommunity.com/app/4316340" target="_blank" rel="noopener">Tied to the Beat</a> community · <a href="https://github.com/JaviLianes8/tied-to-the-beat-workshop" target="_blank" rel="noopener">Edit this guide on GitHub</a></p>
+</footer>
+
+<script type="module" src="assets/js/main.js" defer></script>
+</body>
+</html>

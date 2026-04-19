@@ -1,0 +1,41 @@
+/*
+ * callouts.css — inline advisory boxes with a colored left border.
+ * Four variants share the same structure and differ only in accent
+ * (default=blue, warn=red, tip=purple, success=green). RTL flips the
+ * border to the right side.
+ */
+
+.callout {
+  position: relative;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(147, 197, 214, 0.08) 0%, rgba(147, 197, 214, 0) 100%);
+  padding: 15px 20px;
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  margin: 22px 0;
+  font-size: 14.5px;
+  color: var(--ink-dim);
+}
+
+.callout.warn {
+  border-left-color: var(--danger);
+  background: linear-gradient(90deg, rgba(248, 113, 113, 0.10) 0%, rgba(248, 113, 113, 0) 100%);
+}
+.callout.tip {
+  border-left-color: var(--purple);
+  background: linear-gradient(90deg, rgba(167, 139, 250, 0.10) 0%, rgba(167, 139, 250, 0) 100%);
+}
+.callout.success {
+  border-left-color: var(--success);
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.10) 0%, rgba(34, 197, 94, 0) 100%);
+}
+
+.callout strong { color: var(--accent); }
+.callout.warn strong { color: var(--danger); }
+.callout.tip strong { color: var(--purple); }
+.callout.success strong { color: var(--success); }
+
+html[dir="rtl"] .callout {
+  border-left: none;
+  border-right: 3px solid var(--accent);
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+}

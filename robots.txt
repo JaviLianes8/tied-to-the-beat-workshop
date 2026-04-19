@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /workshop-steamworks-copy.html
+
+Sitemap: https://javilianes8.github.io/tied-to-the-beat-workshop/sitemap.xml

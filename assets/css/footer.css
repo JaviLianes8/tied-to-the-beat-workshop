@@ -1,0 +1,23 @@
+/*
+ * footer.css — page footer with soft purple glow on the top edge.
+ * Small, muted text; simple link styles override the accent-colored
+ * defaults from typography.css.
+ */
+
+footer {
+  border-top: 1px solid var(--line-accent);
+  padding: 28px 24px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+  background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.04) 100%);
+}
+
+footer a {
+  color: var(--ink-mute);
+  border: none;
+}
+footer a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(147, 197, 214, 0.4);
+}

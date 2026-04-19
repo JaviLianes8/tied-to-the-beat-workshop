@@ -1,0 +1,66 @@
+/*
+ * typography.css — headings and inline text styles.
+ * H1 is the page title (glowing purple shadow), H2 sections carry a
+ * vertical gradient bar to the left, H3 is plain. Inline elements
+ * (strong/em/a) follow accent colors from tokens.
+ */
+
+h1 {
+  font-weight: 900;
+  font-size: 44px;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+  color: var(--ink);
+  line-height: 1.1;
+  text-shadow:
+    0 0 40px rgba(167, 139, 250, 0.55),
+    0 0 80px rgba(167, 139, 250, 0.28);
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  margin-top: 52px;
+  margin-bottom: 14px;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(147, 197, 214, 0.3);
+}
+h2::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 22px;
+  background: linear-gradient(180deg, var(--purple) 0%, var(--accent) 100%);
+  border-radius: 3px;
+  margin-right: 12px;
+  vertical-align: -4px;
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.5);
+}
+
+h3 {
+  font-size: 19px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+p { color: var(--ink-dim); margin: 0 0 14px; }
+p.lead { font-size: 18px; color: var(--ink); margin-bottom: 28px; line-height: 1.55; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(147, 197, 214, 0.35);
+  transition: color 0.15s, border-color 0.15s, text-shadow 0.15s;
+}
+a:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  text-shadow: 0 0 8px rgba(147, 197, 214, 0.45);
+}
+
+strong { color: var(--ink); font-weight: 700; }
+em { color: var(--ink-mute); font-style: italic; }

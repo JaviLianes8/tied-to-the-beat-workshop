@@ -1,0 +1,25 @@
+/*
+ * layout.css — utility grids.
+ * The two generic grid helpers (2 and 3 columns) collapse to a single
+ * column below 760px. Everything responsive lives in responsive.css,
+ * but the mobile collapse for grids happens here because it's the
+ * grid's own concern.
+ */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 30px 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 24px 0;
+}
+
+@media (max-width: 760px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}

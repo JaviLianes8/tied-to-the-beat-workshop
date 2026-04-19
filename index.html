@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.home.title">Tied to the Beat — Workshop guide</title>
+<meta name="description" data-i18n-attr="content:meta.home.description" content="Share and play community lyrics (LRC) and custom tracks for Tied to the Beat via Steam Workshop. One file format, three steps, no setup.">
+<meta property="og:title" content="Tied to the Beat — Workshop guide">
+<meta property="og:description" content="Share and play community lyrics and custom tracks via Steam Workshop.">
+<meta property="og:image" content="assets/img/header.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand">
+      <span data-i18n="nav.brand">TIED TO THE BEAT</span><span data-i18n="nav.brandSub"> · Workshop</span>
+    </a>
+    <a href="format.html" class="link" data-i18n="nav.format">LRC format</a>
+    <a href="faq.html" class="link" data-i18n="nav.faq">FAQ</a>
+    <div class="lang-picker"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <img src="assets/img/header.jpg" alt="Tied to the Beat — Workshop" width="948" height="203">
+  </div>
+
+  <h1 data-i18n="home.h1">The Community Workshop</h1>
+  <p class="lead" data-i18n-html="home.lead.html">
+    Upload an <strong>MP3 + synchronized lyrics</strong> — everyone who owns the game can subscribe and play it. One standard format, three steps.
+  </p>
+
+  <div class="btn-row">
+    <a class="btn" href="https://steamcommunity.com/app/4316340/workshop/" target="_blank" rel="noopener" data-i18n="home.cta.open">Browse the Workshop on Steam</a>
+    <a class="btn secondary" href="format.html" data-i18n="home.cta.format">See the LRC format →</a>
+  </div>
+
+  <h2 data-i18n="home.h2.how">How it works</h2>
+  <div class="grid-3">
+    <div class="card">
+      <span class="icon" aria-hidden="true">1</span>
+      <h3 data-i18n="home.step.1.title">Get a shareable MP3</h3>
+      <p data-i18n-html="home.step.1.desc.html">Your own music, Public Domain, or a royalty-free track from <a href="https://pixabay.com/music/" target="_blank" rel="noopener">Pixabay</a>. Anything you have rights to redistribute.</p>
+    </div>
+    <div class="card">
+      <span class="icon" aria-hidden="true">2</span>
+      <h3 data-i18n="home.step.2.title">Write a <code>lyrics.lrc</code></h3>
+      <p data-i18n-html="home.step.2.desc.html">Plain text file with song metadata and line-by-line timestamps. Use the template below — it's the <a href="format.html">exact format the game expects</a>.</p>
+    </div>
+    <div class="card">
+      <span class="icon" aria-hidden="true">3</span>
+      <h3 data-i18n="home.step.3.title">Import in-game and upload</h3>
+      <p data-i18n="home.step.3.desc">In-game: Main menu → Import song → drop both files → review → Upload to Workshop. Steam handles the rest.</p>
+    </div>
+  </div>
+
+  <h2 data-i18n="home.h2.template">The standard LRC format</h2>
+  <p data-i18n-html="home.template.intro.html">Copy this template, replace the values, sync your timestamps. <strong>Every Workshop item uses this exact shape</strong> — it's how the game parses metadata, triggers gameplay effects, and attributes audio sources.</p>
+
+<pre><code>[ti:Song Title]
+[ar:Artist Name]
+[al:Album Name]
+[la:en]
+[length:03:30]
+[by:your_tool_or_name]
+[offset:0]
+[source:https://pixabay.com/music/...]
+[license:Pixabay License]
+[genre:electronic]
+[ve:1]
+
+[00:00.00] [instrumental]
+[00:12.09] Boom, boom, hear the bass, feel it shake the whole wide place
+[00:17.04] Clap your hands and stomp your feet, techno kids bring all the heat
+[00:20.42] [instrumental]
+[00:26.15] Be so deep, it makes us fly
+[00:30.08] Jump so high, we touch the sky</code></pre>
+
+  <p data-i18n-html="home.template.outro.html">All 11 header tags explained on the <a href="format.html">format reference</a>. The <code>[source:]</code> and <code>[license:]</code> tags are <strong>required</strong> — they're how uploaders stay honest about where their audio came from.</p>
+
+  <h2 data-i18n="home.h2.music">Music you can legally share</h2>
+  <div class="grid-2">
+    <a class="card" href="https://pixabay.com/music/" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">★</span>
+      <h3 data-i18n="home.music.pixabay.title">Pixabay Music</h3>
+      <p data-i18n-html="home.music.pixabay.desc.html">Easiest. Huge catalog, commercial use allowed, <strong>no attribution required</strong>.</p>
+    </a>
+    <a class="card" href="https://freemusicarchive.org/" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">♪</span>
+      <h3 data-i18n="home.music.fma.title">Free Music Archive</h3>
+      <p data-i18n="home.music.fma.desc">Creative Commons catalog. Attribution usually required — credit the artist in <code>[source:]</code>.</p>
+    </a>
+    <a class="card" href="https://www.youtube.com/audiolibrary" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">▶</span>
+      <h3 data-i18n="home.music.yt.title">YouTube Audio Library</h3>
+      <p data-i18n="home.music.yt.desc">Curated royalty-free tracks. Usable outside YouTube. Requires a free Google account.</p>
+    </a>
+    <div class="card">
+      <span class="icon" aria-hidden="true">♡</span>
+      <h3 data-i18n="home.music.own.title">Your own music</h3>
+      <p data-i18n="home.music.own.desc">Always safe. Zero legal risk, full ownership, yours to share.</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <p data-i18n-html="home.callout.copyright.html"><strong>Respect copyright.</strong> Only upload music you have rights to redistribute. Steam enforces DMCA and <strong>you are responsible for what you upload</strong>. When unsure, prefer Pixabay or your own compositions.</p>
+  </div>
+
+  <div class="callout">
+    <p data-i18n-html="home.callout.steam.html"><strong>Steam only.</strong> The Workshop needs the Steam build of the game. Players on Epic or standalone can still import local songs but can't browse or subscribe to community tracks.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p data-i18n-html="footer.html">Made by the <a href="https://steamcommunity.com/app/4316340" target="_blank" rel="noopener">Tied to the Beat</a> community · <a href="https://github.com/JaviLianes8/tied-to-the-beat-workshop" target="_blank" rel="noopener">Edit this guide on GitHub</a></p>
+</footer>
+
+<script type="module" src="assets/js/main.js" defer></script>
+</body>
+</html>

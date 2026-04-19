@@ -1,0 +1,16 @@
+/*
+ * lists.css — plain <ul> bullet lists.
+ * Purple bullet markers keep them tied to the site palette. Ordered
+ * lists used for walkthroughs live in steps.css, not here.
+ */
+
+ul {
+  margin: 14px 0;
+  padding-left: 22px;
+  color: var(--ink-mute);
+}
+html[dir="rtl"] ul { padding-left: 0; padding-right: 22px; }
+
+ul li { margin-bottom: 6px; }
+ul li strong { color: var(--ink); }
+ul li::marker { color: var(--purple); }

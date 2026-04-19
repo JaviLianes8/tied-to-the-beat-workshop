@@ -1,0 +1,88 @@
+/*
+ * nav.css — top navigation bar + animated shimmer beam.
+ * Sticky, frosted-glass. The ::after pseudo-element owns the multicolor
+ * shimmer that slides under the border on an infinite loop — reduced for
+ * users who opt into prefers-reduced-motion (see responsive.css).
+ */
+
+nav.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--line-accent);
+}
+
+nav.top .inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav.top .brand {
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(167, 139, 250, 0.5);
+}
+nav.top .brand span {
+  color: var(--accent);
+  font-weight: 600;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}
+
+nav.top a.link {
+  color: var(--ink-mute);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+nav.top a.link:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(147, 197, 214, 0.5);
+}
+nav.top a.link.active {
+  color: var(--ink);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+nav.top::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 110, 199, 0.0) 12%,
+    var(--neon-pink) 22%,
+    var(--neon-cyan) 38%,
+    var(--purple) 52%,
+    var(--accent) 66%,
+    var(--neon-lime) 82%,
+    transparent 98%
+  );
+  background-size: 220% 100%;
+  animation: nav-shimmer 9s linear infinite;
+  opacity: 0.55;
+  pointer-events: none;
+  filter: blur(0.4px);
+}
+
+@keyframes nav-shimmer {
+  0%   { background-position: 220% 0; }
+  100% { background-position: -220% 0; }
+}

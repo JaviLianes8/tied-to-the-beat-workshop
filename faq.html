@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.faq.title">FAQ — Tied to the Beat Workshop</title>
+<meta name="description" data-i18n-attr="content:meta.faq.description" content="Answers to common questions about the Tied to the Beat community Workshop — copyright, platforms, updates, moderation.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand">
+      <span data-i18n="nav.brand">TIED TO THE BEAT</span><span data-i18n="nav.brandSub"> · Workshop</span>
+    </a>
+    <a href="format.html" class="link" data-i18n="nav.format">LRC format</a>
+    <a href="faq.html" class="link active" data-i18n="nav.faq">FAQ</a>
+    <div class="lang-picker"></div>
+  </div>
+</nav>
+
+<main>
+  <h1 data-i18n="faq.h1">FAQ</h1>
+
+  <h2 data-i18n="faq.h2.platforms">Platforms</h2>
+
+  <h3 data-i18n="faq.plat.epic.q">Can I use the Workshop on Epic or standalone?</h3>
+  <p data-i18n="faq.plat.epic.a">No — the Workshop is a Steam feature. Non-Steam players can still import local songs, but can't subscribe to or upload community tracks.</p>
+
+  <h3 data-i18n="faq.plat.offline.q">Does it work offline?</h3>
+  <p data-i18n="faq.plat.offline.a">Subscribed tracks work offline once Steam has finished downloading them. New uploads and subscriptions need an internet connection.</p>
+
+  <h3 data-i18n="faq.plat.private.q">Can I keep my upload private until it's ready?</h3>
+  <p data-i18n-html="faq.plat.private.a.html">Yes. Pick <strong>Unlisted</strong> (accessible only by URL) or <strong>Friends only</strong> when uploading. You can flip to Public anytime from the item page on Steam.</p>
+
+  <h2 data-i18n="faq.h2.copyright">Copyright</h2>
+
+  <h3 data-i18n="faq.cr.songs.q">Can I upload a song I didn't write?</h3>
+  <p data-i18n-html="faq.cr.songs.a.html"><strong>Only if it's legally redistributable</strong>:</p>
+  <ul>
+    <li data-i18n="faq.cr.songs.li1">Your own compositions.</li>
+    <li data-i18n="faq.cr.songs.li2">Public domain works (verify the duration in your country — typically life of author + 70 years).</li>
+    <li data-i18n-html="faq.cr.songs.li3">Royalty-free or Creative Commons tracks (respect the license — attribute the artist in <code>[source:]</code>).</li>
+  </ul>
+  <p data-i18n-html="faq.cr.songs.a2.html">You <strong>cannot</strong> upload copyrighted commercial music without permission from the rights holders. Doing so leads to DMCA takedowns and Steam account penalties.</p>
+
+  <h3 data-i18n="faq.cr.responsibility.q">Who is responsible for what I upload?</h3>
+  <p data-i18n-html="faq.cr.responsibility.a.html">You are. The game provides the Workshop as a neutral platform; uploaders control and are responsible for content. Read Steam's <a href="https://store.steampowered.com/workshoplegalagreement/" target="_blank" rel="noopener">Workshop Legal Agreement</a> before uploading.</p>
+
+  <h3 data-i18n="faq.cr.report.q">How do I report a violation?</h3>
+  <p data-i18n-html="faq.cr.report.a.html">On the Workshop item page: <strong>…</strong> menu → <strong>Report</strong>. If you're the copyright holder, use Steam's <a href="https://help.steampowered.com/en/faqs/view/5A1D-18EA-7A1C-78C2" target="_blank" rel="noopener">formal DMCA process</a>.</p>
+
+  <h2 data-i18n="faq.h2.editing">Updates &amp; deletion</h2>
+
+  <h3 data-i18n="faq.ed.update.q">Can I update my uploaded track?</h3>
+  <p data-i18n-html="faq.ed.update.a.html">Yes — open your Workshop track in-game, edit the LRC, and click <strong>Update on Workshop</strong>. Subscribers get the update automatically the next time Steam syncs.</p>
+
+  <h3 data-i18n="faq.ed.delete.q">Can I delete my upload?</h3>
+  <p data-i18n-html="faq.ed.delete.a.html">Yes. Either from in-game (your uploaded tracks), or on the Workshop page → <strong>…</strong> → <strong>Delete</strong>. Subscribers lose access immediately.</p>
+
+  <h3 data-i18n="faq.ed.edit.q">Can I edit someone else's upload?</h3>
+  <p data-i18n-html="faq.ed.edit.a.html">Not directly. You can download their LRC, edit it, and re-upload as <strong>your own</strong> item with credit to the original author in the description.</p>
+
+  <h2 data-i18n="faq.h2.tech">Technical</h2>
+
+  <h3 data-i18n="faq.t.files.q">Where are Workshop files stored?</h3>
+  <p data-i18n-html="faq.t.files.a.html">Steam handles this at <code>&lt;Steam library&gt;/steamapps/workshop/content/4316340/&lt;itemid&gt;/</code>. You never need to touch these folders — everything routes through the game's track list.</p>
+
+  <h3 data-i18n="faq.t.size.q">Upload size limits?</h3>
+  <p data-i18n-html="faq.t.size.a.html">MP3s up to <strong>50 MB</strong>. Lyrics-only uploads are typically 5–15 KB.</p>
+
+  <h3 data-i18n="faq.t.duration.q">Supported song durations?</h3>
+  <p data-i18n-html="faq.t.duration.a.html">Between <strong>2 and 6 minutes</strong>. Outside that range the import validator rejects the file — run pacing and progression are tuned around this window.</p>
+
+  <h3 data-i18n="faq.t.unsupported.q">Which LRC features aren't supported?</h3>
+  <p data-i18n="faq.t.unsupported.a">The game ignores:</p>
+  <ul>
+    <li data-i18n="faq.t.unsupported.li1">Bilingual dual-line LRC (use separate uploads per language).</li>
+    <li data-i18n-html="faq.t.unsupported.li2">HTML/CSS styling tags (<code>&lt;font&gt;</code>, <code>&lt;b&gt;</code>, …).</li>
+    <li data-i18n-html="faq.t.unsupported.li3">Karaoke color transitions (<code>{\k}</code> ASS tags).</li>
+  </ul>
+
+  <h3 data-i18n="faq.t.bug.q">I found a bug. Where do I report?</h3>
+  <p data-i18n-html="faq.t.bug.a.html">Game-side: <a href="https://steamcommunity.com/app/4316340/discussions/" target="_blank" rel="noopener">Steam discussions</a>. Guide-side: <a href="https://github.com/JaviLianes8/tied-to-the-beat-workshop/issues" target="_blank" rel="noopener">GitHub issues</a>.</p>
+
+  <div class="btn-row">
+    <a class="btn" href="index.html" data-i18n="faq.btn.back">← Back to guide</a>
+    <a class="btn secondary" href="format.html" data-i18n="faq.btn.format">LRC format reference</a>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n-html="footer.html">Made by the <a href="https://steamcommunity.com/app/4316340" target="_blank" rel="noopener">Tied to the Beat</a> community · <a href="https://github.com/JaviLianes8/tied-to-the-beat-workshop" target="_blank" rel="noopener">Edit this guide on GitHub</a></p>
+</footer>
+
+<script type="module" src="assets/js/main.js" defer></script>
+</body>
+</html>

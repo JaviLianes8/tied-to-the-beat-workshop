@@ -1,0 +1,40 @@
+/*
+ * table.css — data tables used for comparisons and parameter lists.
+ * Rounded corners, accent-tinted header row, subtle hover on body rows.
+ * RTL swaps text alignment.
+ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elev) 100%);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--line-accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+  text-align: left;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  vertical-align: top;
+}
+html[dir="rtl"] th, html[dir="rtl"] td { text-align: right; }
+
+th {
+  background: rgba(147, 197, 214, 0.08);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--line-accent);
+}
+
+tr:last-child td { border-bottom: none; }
+td { color: var(--ink-mute); }
+td strong { color: var(--ink); }
+tbody tr:hover { background: rgba(147, 197, 214, 0.04); }

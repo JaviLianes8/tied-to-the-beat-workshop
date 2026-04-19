@@ -1,0 +1,38 @@
+/*
+ * base.css — document-level reset + layout shell.
+ * Owns the body background, the <main> container width, and global
+ * html-element behavior (smooth scroll, RTL alignment). Component
+ * styles live in their own modules.
+ */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+html[dir="rtl"] body { text-align: right; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 520px at 50% -120px, rgba(167, 139, 250, 0.14) 0%, transparent 65%),
+    radial-gradient(600px 400px at 90% 110%, rgba(147, 197, 214, 0.10) 0%, transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  position: relative;
+  z-index: 1;
+}

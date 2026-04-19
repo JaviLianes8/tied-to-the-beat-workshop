@@ -1,0 +1,90 @@
+/*
+ * code.css — inline and block code styling.
+ * Covers <code>, <kbd>, <pre>, and the special .lyric-preview block
+ * which renders LRC lines as they appear in-game (Inter font, not mono).
+ */
+
+code, kbd {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.88em;
+  background: rgba(167, 139, 250, 0.10);
+  color: var(--accent);
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  font-weight: 500;
+}
+
+kbd {
+  background: var(--bg-elev);
+  color: var(--ink);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.5) inset;
+  font-weight: 700;
+  font-size: 0.82em;
+}
+
+pre {
+  background: linear-gradient(180deg, rgba(26, 36, 32, 0.9) 0%, rgba(21, 28, 24, 0.9) 100%);
+  border: 1px solid var(--line-accent);
+  border-radius: var(--radius-card);
+  padding: 18px 22px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink-dim);
+  margin: 18px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(167, 139, 250, 0.06);
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Lyric preview — uses Inter so it mimics the in-game lyric strip */
+.lyric-preview {
+  background:
+    linear-gradient(180deg, rgba(167, 139, 250, 0.05) 0%, rgba(147, 197, 214, 0.03) 100%),
+    rgba(13, 18, 16, 0.6);
+  border: 1px solid var(--line-accent);
+  border-radius: var(--radius-card);
+  padding: 22px 26px;
+  margin: 18px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  line-height: 2;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  position: relative;
+}
+.lyric-preview::before {
+  content: 'PREVIEW';
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--purple);
+  font-weight: 700;
+  opacity: 0.7;
+}
+.lyric-preview .time {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-right: 12px;
+  letter-spacing: 0.02em;
+}
+.lyric-preview .tag {
+  color: var(--purple);
+  font-style: italic;
+  font-weight: 500;
+}

@@ -1,0 +1,55 @@
+/*
+ * tokens.css — design-token palette.
+ * Mirrors the game's own src/styles/layout.css token system so that
+ * every UI primitive (buttons, cards, text, effects) can reference
+ * semantic variables instead of raw hex values. Edit here to re-skin
+ * the whole site at once.
+ */
+
+:root {
+  /* ── Backgrounds ── */
+  --bg: #0D1210;
+  --bg-elev: #151C18;
+  --bg-card: #1A2420;
+  --bg-overlay: rgba(10, 14, 12, 0.92);
+
+  /* ── Text ── */
+  --ink: #FFFFFF;
+  --ink-dim: #E2E8F0;
+  --ink-mute: #CBD5E1;
+  --ink-soft: #8A97A3;
+  --ink-accent: #A8D4E6;
+
+  /* ── Primary accent (pastel sky blue) ── */
+  --accent: #93C5D6;
+  --accent-dark: #6B9DAE;
+  --accent-15: rgba(147, 197, 214, 0.15);
+  --accent-30: rgba(147, 197, 214, 0.30);
+  --accent-60: rgba(147, 197, 214, 0.60);
+
+  /* ── Secondary accents ── */
+  --gold: #FBBF24;
+  --gold-rgb: 251, 191, 36;
+  --purple: #A78BFA;
+  --purple-rgb: 167, 139, 250;
+  --magenta: #C084FC;
+  --silver: #C0C0C0;
+
+  /* ── Neon vinyl rings (splash-screen palette) ── */
+  --neon-pink: #FF6EC7;
+  --neon-cyan: #00D4FF;
+  --neon-lime: #39FF14;
+
+  /* ── Status ── */
+  --danger: #F87171;
+  --success: #22C55E;
+
+  /* ── Structure ── */
+  --radius-card: 16px;
+  --radius-button: 10px;
+  --radius-pill: 999px;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-accent: rgba(147, 197, 214, 0.22);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --shadow-glow-purple: 0 0 48px rgba(167, 139, 250, 0.18);
+}

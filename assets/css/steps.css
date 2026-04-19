@@ -1,0 +1,67 @@
+/*
+ * steps.css — numbered step list used for "how to" walkthroughs.
+ * Each <li> is a self-contained card with a gradient-filled counter
+ * bubble positioned absolutely. RTL overrides mirror the bubble to the
+ * right side and flip the inner padding.
+ */
+
+ol.steps {
+  counter-reset: step;
+  padding: 0;
+  margin: 26px 0;
+  list-style: none;
+}
+
+ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 20px 22px 20px 72px;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-elev) 100%);
+  border: 1px solid var(--line-accent);
+  border-radius: var(--radius-card);
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+  overflow: hidden;
+  isolation: isolate;
+}
+ol.steps > li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 8% 50%, rgba(147, 197, 214, 0.08), transparent 45%);
+  z-index: -1;
+}
+ol.steps > li:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--purple) 0%, var(--accent) 100%);
+  color: #0a0e14;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 4px 18px rgba(167, 139, 250, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+html[dir="rtl"] ol.steps > li { padding: 20px 72px 20px 22px; }
+html[dir="rtl"] ol.steps > li::before { left: auto; right: 18px; }
+
+ol.steps > li h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+ol.steps > li p:last-child { margin-bottom: 0; }

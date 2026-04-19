@@ -1,0 +1,58 @@
+/*
+ * hero.css — banner at the top of the landing page.
+ * The two ::before / ::after pseudo-elements draw concentric vinyl
+ * grooves in purple and sky-blue, giving the hero a record-player feel
+ * that matches the game's own splash-screen aesthetic.
+ */
+
+.hero {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow), var(--shadow-glow-purple);
+  border: 1px solid var(--line-accent);
+  isolation: isolate;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.22;
+  z-index: 1;
+}
+
+.hero::before {
+  width: 280px; height: 280px;
+  right: -90px; top: -90px;
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(167, 139, 250, 0.35) 0,
+    rgba(167, 139, 250, 0.35) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+}
+
+.hero::after {
+  width: 180px; height: 180px;
+  right: -20px; bottom: -60px;
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(147, 197, 214, 0.4) 0,
+    rgba(147, 197, 214, 0.4) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
